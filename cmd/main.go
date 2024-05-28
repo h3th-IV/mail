@@ -5,11 +5,11 @@ import (
 	"log"
 	"time"
 
-	"github.com/h3th-IV/mail/mail"
+	"github.com/h3th-IV/mail/dister"
 )
 
 func main() {
-	config := mail.MailerConfig{
+	config := dister.MailerConfig{
 		Host:     "live.smtp.mailtrap.io",
 		Port:     587,
 		Username: "api",
@@ -18,8 +18,7 @@ func main() {
 		Sender:   "samuelbonux10@gmail.com",
 	}
 
-	sender := mail.New(config)
-
+	sender := dister.New(config)
 	err := sender.Send("samuelbonu0@gmail.com", "welcome.html", nil)
 	if err != nil {
 		log.Fatal(err)
